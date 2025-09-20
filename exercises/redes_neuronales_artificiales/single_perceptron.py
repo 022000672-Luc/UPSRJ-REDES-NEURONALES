@@ -33,7 +33,7 @@ set_logging(log_file='single_perceptron.log')
 # NOTE: https://docs.python.org/3/tutorial/classes.html                                                                     #
 #                                                                                                                           #
 #############################################################################################################################
-
+ 
 # Paso 1: Abstracción de entradas de una neurona.
 #
 # TODO: Define una clase "InputData" que contenga todos los elementos del diagrama conceptual referentes a la entrada de un perceptrón.
