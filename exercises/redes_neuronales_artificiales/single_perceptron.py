@@ -33,7 +33,7 @@ set_logging(log_file='single_perceptron.log')
 # NOTE: https://docs.python.org/3/tutorial/classes.html                                                                     #
 #                                                                                                                           #
 #############################################################################################################################
- 
+
 # Paso 1: Abstracción de entradas de una neurona.
 #
 # TODO: Define una clase "InputData" que contenga todos los elementos del diagrama conceptual referentes a la entrada de un perceptrón.
@@ -60,35 +60,3 @@ class InputData:
         self.w = w
     
 clog(InputData)
-
-# Paso 2: Abstracción de una neurona.
-#
-# TODO: Define una clase "Perceptron" que contenga todos los elementos del diagrama conceptual referentes a un perceptrón.
-#
-# NOTE: * Considera todos los procesos que ocurren dentro de un perceptrón:
-#           - La suma ponderada de las entradas
-#           - La aplicación de una función de activación
-#
-#       * Recuerda que un perceptrón contiene:
-#           - una o varias entradas de datos con un peso respectivo.
-#           - un sesgo "b"
-#           - una suma ponderada de las entradas "z"
-#           - una salida "a" definida por su función de activación
-#
-class Perceptron:
-    def __init__(self, inputs: list[InputData], b: float):
-        self.inputs = inputs
-        self.b = b
-        self.z = self.forward()
-        self.a = self.activation()
-        
-    def forward(self):
-        z = 0
-        for input in self.inputs:
-            z = z + (input.x * input.w)
-        return z + self.b
-    
-    def activation(self):
-        return 1.0 / (1.0 + np.exp(-self.z))
-
-clog(Perceptron)
