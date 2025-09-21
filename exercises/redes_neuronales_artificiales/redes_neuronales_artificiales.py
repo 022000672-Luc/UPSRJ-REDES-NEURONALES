@@ -15,6 +15,8 @@ i2 = InputData(x=0.2)
 i3 = InputData(x=0.3)
  
 b1 = random.random()
+b2 = random.random()
+b3 = random.random()
 
 p1 = Perceptron(inputs=[i1, i2], b=b1)
 
@@ -46,7 +48,9 @@ plog(f"Salida de la red de una sola capa: {single_layer_perceptron}", level=ERRO
 #              ↑                          ↑
 #            (w1, b1)                   (w2, b2)
 #
-two_layer_network = None
+n1 = Perceptron(inputs=[i2], b=b1)
+n2 = Perceptron(inputs=[InputData(x=n1.a)], b=b2)
+two_layer_network = n2.a
 
 plog(f"Salida de la red de dos capas: {two_layer_network}", level=ERROR if two_layer_network is None else DEBUG, eol=True)
 
@@ -66,6 +70,9 @@ plog(f"Salida de la red de dos capas: {two_layer_network}", level=ERROR if two_l
 #       ↗      ↘                ↗         
 #   x2 ─────────► [ Neurona 2 ]
 #
-small_network = None
+h1 = Perceptron(inputs=[i1, i2], b=b1)
+h2 = Perceptron(inputs=[i2, i3], b=b2)
+out = Perceptron(inputs=[InputData(x=h1.a), InputData(x=h2.a)], b=b3)
+small_network = out.a
 
 plog(f"Salida de la red de pequeña: {small_network}", level=ERROR if small_network is None else DEBUG, eol=True)
